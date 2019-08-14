@@ -1,0 +1,10 @@
+<h1>Let's create a new user</h1>
+
+<div class="row">
+  <%= form_for (@user) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.submit "Create account", class: "btn btn-primary" %>
+  <% end %>
+</div>
