@@ -3,10 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:session][:name].downcase)
+    user = User.find_by(name: params[:session][:name])
+    
     if user
+      message = "Logged in"
+      flash[:success] = message
       log_in user
-      redirect_back_or user
+      redirect_to user
     else
       message = "User not found"
       flash[:danger] = message
