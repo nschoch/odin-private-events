@@ -9,6 +9,15 @@
 User.create!(name: "Tester")
 
 10.times do |n|
-  name = Faker::Name.first_name
+  name = Faker::Name.unique.first_name
   User.create!(name: name)
+end
+
+users = User.order(:created_at).take(6)
+10.times do
+  start_date = rand(10.days).seconds.ago
+  description = Faker::Lorem.sentence
+  users.each do |user|
+    user.events.create!(start_date: start_date, description: description)
+  end
 end
