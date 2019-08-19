@@ -1,4 +1,12 @@
 Hi <%= @user.name %>
 <% if @user == current_user %>
-<p> You are logged in as this person.</p>
+  <p> You are logged in as this person.</p>
 <% end %>
+<div class="col-md-8">
+  <% if @user.events.any? %>
+    <h3>Events (<%= @user.events.count %>)</h3>
+    <ol class="events">
+      <%= render @user.events %>
+    </ol>
+  <% end %>
+</div>
