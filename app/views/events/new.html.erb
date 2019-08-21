@@ -1,0 +1,12 @@
+<h1>Create new event as <%= current_user.name %></h1>
+
+<div class="row">
+  <%= form_for(@event) do |f| %>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, class: 'form-control' %>
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+
+    <%= f.submit "Create event", class: "btn btn-primary" %>
+  <% end %>
+</div>
