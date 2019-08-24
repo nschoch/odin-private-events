@@ -21,9 +21,14 @@ ActiveRecord::Schema.define(version: 2019_08_22_224147) do
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
-  create_table "events_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "event_id", null: false
+  create_table "invitations", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "attendee_id"
+    t.boolean "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attendee_id"], name: "index_invitations_on_attendee_id"
+    t.index ["event_id"], name: "index_invitations_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
