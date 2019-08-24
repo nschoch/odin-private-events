@@ -1,1 +1,5 @@
 <h1><%= @event.description %></h1>
+<h2>Attendees (<%= @event.invitations.count %>)</h2>
+<ol>
+ <%= render @event.attendees %>
+</ol>
