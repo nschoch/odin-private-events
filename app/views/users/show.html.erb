@@ -4,9 +4,18 @@ Hi <%= @user.name %>
 <% end %>
 <div class="col-md-8">
   <% if @user.events.any? %>
-    <h3>Events (<%= @user.events.count %>)</h3>
+    <h3>Created events (<%= @user.events.count %>)</h3>
     <ol class="events">
       <%= render @user.events %>
+    </ol>
+  <% end %>
+</div>
+
+<div class="col-md-8">
+  <% if @user.attended_events.any? %>
+    <h3>Attended events (<%= @user.attended_events.count %>)</h3>
+    <ol class="attended_events">
+      <%= render @user.attended_events %>
     </ol>
   <% end %>
 </div>
